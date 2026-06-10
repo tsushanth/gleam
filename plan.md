@@ -1585,152 +1585,152 @@ APIs used with justification:
 ## 10. TODO Checklist
 
 ### Project Setup
-- [ ] Create Xcode project: "Gleam", bundle ID `com.appfactory.gleam`, iOS 17+ deployment target, SwiftUI lifecycle
-- [ ] Configure Swift Package Manager dependencies:
-  - [ ] Add RevenueCat (`PurchasesHybridCommon`) via SPM
-  - [ ] Add Firebase iOS SDK (`FirebaseAnalytics`) via SPM
-  - [ ] Add Facebook iOS SDK (`FacebookCore`) via SPM
-  - [ ] Verify AdServices framework is linked (system framework, no SPM needed)
-- [ ] Create `Gleam.entitlements` file with iCloud, Sign in with Apple, push notification entries
-- [ ] Set up Xcode build configurations: Debug / Release / (optional) Staging
-- [ ] Add `PrivacyInfo.xcprivacy` privacy manifest file
-- [ ] Configure Info.plist with all required privacy usage strings and Facebook SDK keys
+- [x] Create Xcode project: "Gleam", bundle ID `com.appfactory.gleam`, iOS 17+ deployment target, SwiftUI lifecycle
+- [x] Configure Swift Package Manager dependencies:
+  - [x] Add RevenueCat (`purchases-ios-spm`) via SPM
+  - [x] Add Firebase iOS SDK (`FirebaseAnalytics`) via SPM
+  - [x] Add Facebook iOS SDK (`FacebookCore`) via SPM
+  - [x] Verify AdServices framework is linked (system framework, no SPM needed)
+- [x] Create `Gleam.entitlements` file with iCloud, Sign in with Apple, push notification entries
+- [x] Set up Xcode build configurations: Debug / Release / (optional) Staging
+- [x] Add `PrivacyInfo.xcprivacy` privacy manifest file
+- [x] Configure Info.plist with all required privacy usage strings and Facebook SDK keys
 
 ### Asset Creation
 - [ ] Design and export AppIcon (1024×1024 PNG) — no alpha channel, no rounded corners
-- [ ] Create AccentColor adaptive colorset (light + dark)
-- [ ] Create GleamGreen, GleamYellow, GleamOrange, GleamRed adaptive colorsets
+- [x] Create AccentColor adaptive colorset (light + dark)
+- [x] Create GleamGreen, GleamYellow, GleamOrange, GleamRed adaptive colorsets
 - [ ] Record or source completion chime sound in `.caf` format
 - [ ] Create LaunchScreen configuration in Info.plist
 
 ### SwiftData Models
-- [ ] Define `Home` @Model with all properties and relationships
-- [ ] Define `Room` @Model with `aggregateDirtinessScore` computed property
-- [ ] Define `CleaningTask` @Model with `dirtinessScore` and `dirtinessLevel` computed properties
-- [ ] Define `CompletionLog` @Model
-- [ ] Define `HouseholdMember` @Model
-- [ ] Create `DirtinessLevel` enum with color and accessibilityLabel
-- [ ] Create `RoomIcon` enum with SF Symbol names
-- [ ] Create `TaskFrequency` enum with preset options
-- [ ] Create `SubscriptionTier` enum
-- [ ] Set up `ModelContainer` with schema migration plan in `GleamApp.swift`
-- [ ] Write `DirtinessCalculator` utility with `level(for:)`, `percentage(for:)`, `nextTransitionDate(task:)`
+- [x] Define `Home` @Model with all properties and relationships
+- [x] Define `Room` @Model with `aggregateDirtinessScore` computed property
+- [x] Define `CleaningTask` @Model with `dirtinessScore` and `dirtinessLevel` computed properties
+- [x] Define `CompletionLog` @Model
+- [x] Define `HouseholdMember` @Model
+- [x] Create `DirtinessLevel` enum with color and accessibilityLabel
+- [x] Create `RoomIcon` enum with SF Symbol names
+- [x] Create `TaskFrequency` enum with preset options
+- [x] Create `SubscriptionTier` enum
+- [x] Set up `ModelContainer` with schema migration plan in `GleamApp.swift`
+- [x] Write `DirtinessCalculator` utility with `level(for:)`, `percentage(for:)`, `nextTransitionDate(task:)`
 
 ### App Entry Point & Navigation
-- [ ] Implement `GleamApp.swift` with `AppDelegate` for SDK initialization in correct order
-- [ ] Implement `ContentView.swift` with onboarding/main routing gate using `UserDefaults` flag
-- [ ] Implement `MainTabView.swift` with 5 tabs and badge count on Tasks tab
-- [ ] Implement `AppRouter.swift` ObservableObject for global sheet/modal state
-- [ ] Create `UserDefaultsKeys.swift` constants file
+- [x] Implement `GleamApp.swift` with `AppDelegate` for SDK initialization in correct order
+- [x] Implement `ContentView.swift` with onboarding/main routing gate using `UserDefaults` flag
+- [x] Implement `MainTabView.swift` with 5 tabs and badge count on Tasks tab
+- [x] Implement `AppRouter.swift` ObservableObject for global sheet/modal state
+- [x] Create `UserDefaultsKeys.swift` constants file
 
 ### Onboarding Views
-- [ ] Implement `OnboardingViewModel.swift` with step state machine and AI coordination
-- [ ] Implement `OnboardingContainerView.swift` with animated progress bar and step transitions
-- [ ] Implement `WelcomeView.swift` with hero illustration and value prop ("Zero guilt. Always just clean enough.")
-- [ ] Implement `SegmentationView.swift` with two-question survey (household type + challenge)
-- [ ] Implement `AIRoutineSetupView.swift` with loading skeleton and 60-second promise
-- [ ] Implement `RoomSelectionView.swift` with visual tile grid for room selection
-- [ ] Implement `FirstAhaView.swift` with first dirtiness visualization reveal and celebration animation
-- [ ] Wire ATT permission request to `FirstAhaView.onAppear` (never on first launch)
+- [x] Implement `OnboardingViewModel.swift` with step state machine and AI coordination
+- [x] Implement `OnboardingContainerView.swift` with animated progress bar and step transitions
+- [x] Implement `WelcomeView.swift` with hero illustration and value prop ("Zero guilt. Always just clean enough.")
+- [x] Implement `SegmentationView.swift` with two-question survey (household type + challenge)
+- [x] Implement `AIRoutineSetupView.swift` with loading skeleton and 60-second promise
+- [x] Implement `RoomSelectionView.swift` with visual tile grid for room selection
+- [x] Implement `FirstAhaView.swift` with first dirtiness visualization reveal and celebration animation
+- [x] Wire ATT permission request to `FirstAhaView.onAppear` (never on first launch)
 
 ### Dashboard Views
-- [ ] Implement `DashboardViewModel.swift` with `computeHomeScore()` and `completeTask()`
-- [ ] Implement `DashboardView.swift` with home health gauge, urgent task cards, FAB
-- [ ] Implement `HomeHealthGaugeView.swift` with circular progress gauge
-- [ ] Implement `UrgentTaskCardView.swift` as horizontally scrollable cards
-- [ ] Implement `QuickCompleteButtonView.swift` ("Just Did It") with haptic feedback
+- [x] Implement `DashboardViewModel.swift` with `computeHomeScore()` and `completeTask()`
+- [x] Implement `DashboardView.swift` with home health gauge, urgent task cards, FAB
+- [x] Implement `HomeHealthGaugeView.swift` with circular progress gauge
+- [x] Implement `UrgentTaskCardView.swift` as horizontally scrollable cards
+- [x] Implement `QuickCompleteButtonView.swift` ("Just Did It") with haptic feedback
 
 ### Room Views
-- [ ] Implement `RoomsViewModel.swift` with room CRUD and aggregate dirtiness sorting
-- [ ] Implement `RoomsView.swift` with `LazyVGrid` card layout and search integration
-- [ ] Implement `RoomCardView.swift` with icon, name, and dirtiness meter
-- [ ] Implement `RoomDetailViewModel.swift` with `moveTask()` drag-to-reorder
-- [ ] Implement `RoomDetailView.swift` with reorderable task list and swipe-to-complete
-- [ ] Implement `AddRoomView.swift` sheet with name field and icon picker
+- [x] Implement `RoomsViewModel.swift` with room CRUD and aggregate dirtiness sorting
+- [x] Implement `RoomsView.swift` with `LazyVGrid` card layout and search integration
+- [x] Implement `RoomCardView.swift` with icon, name, and dirtiness meter
+- [x] Implement `RoomDetailViewModel.swift` with `moveTask()` drag-to-reorder
+- [x] Implement `RoomDetailView.swift` with reorderable task list and swipe-to-complete
+- [x] Implement `AddRoomView.swift` sheet with name field and icon picker
 
 ### Task Views
-- [ ] Implement `TaskDetailViewModel.swift` with completion, snooze, delete logic
-- [ ] Implement `TasksView.swift` with full-text search bar and sort/filter controls
-- [ ] Implement `TaskRowView.swift` with swipe-to-complete gesture, dirtiness pill, contextual menu
-- [ ] Implement `TaskDetailView.swift` sheet with frequency picker, assignee, notification time, notes
-- [ ] Implement `AddTaskView.swift` sheet with task name, frequency presets, room assignment
+- [x] Implement `TaskDetailViewModel.swift` with completion, snooze, delete logic
+- [x] Implement `TasksView.swift` with full-text search bar and sort/filter controls
+- [x] Implement `TaskRowView.swift` with swipe-to-complete gesture, dirtiness pill, contextual menu
+- [x] Implement `TaskDetailView.swift` sheet with frequency picker, assignee, notification time, notes
+- [x] Implement `AddTaskView.swift` sheet with task name, frequency presets, room assignment
 
 ### Progress Views
-- [ ] Implement `ProgressViewModel.swift` with weekly stats, streak calculation, leaderboard data
-- [ ] Implement `ProgressView.swift` with streak banner, weekly chart, room heatmap, leaderboard
-- [ ] Implement `StreakBannerView.swift` with flame animation (respecting `isReduceMotionEnabled`)
-- [ ] Implement `WeeklyBarChartView.swift` using SwiftCharts `BarMark`
-- [ ] Implement `RoomHealthGridView.swift` with color-coded room health heatmap
-- [ ] Implement `HouseholdLeaderboardView.swift` with premium gate overlay
+- [x] Implement `ProgressViewModel.swift` with weekly stats, streak calculation, leaderboard data
+- [x] Implement `ProgressView.swift` with streak banner, weekly chart, room heatmap, leaderboard
+- [x] Implement `StreakBannerView.swift` with flame animation (respecting `isReduceMotionEnabled`)
+- [x] Implement `WeeklyBarChartView.swift` using SwiftCharts `BarMark`
+- [x] Implement `RoomHealthGridView.swift` with color-coded room health heatmap
+- [x] Implement `HouseholdLeaderboardView.swift` with premium gate overlay
 
 ### Settings Views
-- [ ] Implement `SettingsViewModel.swift` with vacation mode, haptics toggle, data deletion
-- [ ] Implement `SettingsView.swift` main list with all settings sections
-- [ ] Implement `NotificationSettingsView.swift` with per-task notification time pickers
-- [ ] Implement `VacationModeView.swift` with date range picker and proportional urgency explanation
-- [ ] Implement `HouseholdMembersView.swift` with invite flow and member management (premium-gated)
-- [ ] Implement `AccountView.swift` with Sign in with Apple, subscription status, "Delete My Data" button
+- [x] Implement `SettingsViewModel.swift` with vacation mode, haptics toggle, data deletion
+- [x] Implement `SettingsView.swift` main list with all settings sections
+- [x] Implement `NotificationSettingsView.swift` with per-task notification time pickers
+- [x] Implement `VacationModeView.swift` with date range picker and proportional urgency explanation
+- [x] Implement `HouseholdMembersView.swift` with invite flow and member management (premium-gated)
+- [x] Implement `AccountView.swift` with Sign in with Apple, subscription status, "Delete My Data" button
 
 ### Paywall & Subscription
-- [ ] Implement `SubscriptionViewModel.swift` with RevenueCat purchase/restore logic
-- [ ] Implement `PaywallView.swift` with hero, feature comparison, pricing options, CTA
-- [ ] Implement `SubscriptionOptionView.swift` with badge, price, selection state
-- [ ] Implement `FeatureComparisonView.swift` with free vs. premium feature grid
-- [ ] Implement `PremiumGateView.swift` lock overlay for inline feature gates
-- [ ] Implement `.premiumGate(feature:)` ViewModifier in `ViewModifiers.swift`
-- [ ] Wire paywall trigger in `FirstAhaView` (post-aha, soft, dismissible)
-- [ ] Wire paywall trigger on all premium feature access points
+- [x] Implement `SubscriptionViewModel.swift` with RevenueCat purchase/restore logic
+- [x] Implement `PaywallView.swift` with hero, feature comparison, pricing options, CTA
+- [x] Implement `SubscriptionOptionView.swift` with badge, price, selection state
+- [x] Implement `FeatureComparisonView.swift` with free vs. premium feature grid
+- [x] Implement `PremiumGateView.swift` lock overlay for inline feature gates
+- [x] Implement `.premiumGate(feature:)` ViewModifier in `ViewModifiers.swift`
+- [x] Wire paywall trigger in `FirstAhaView` (post-aha, soft, dismissible — via OnboardingStep.paywall)
+- [x] Wire paywall trigger on all premium feature access points (HouseholdMembersView, TaskDetailView, HouseholdLeaderboardView, AppRouter.presentPaywall)
 
 ### Shared Components
-- [ ] Implement `DirtinessMeterView.swift` capsule bar with animation and full accessibility labels
-- [ ] Implement `CompletionAnimationView.swift` with satisfying SwiftUI keyframe animation
-- [ ] Implement `SearchBarView.swift` reusable search input
-- [ ] Implement `EmptyStateView.swift` with icon, title, CTA button
+- [x] Implement `DirtinessMeterView.swift` capsule bar with animation and full accessibility labels
+- [x] Implement `CompletionAnimationView.swift` with satisfying SwiftUI keyframe animation
+- [x] Implement `SearchBarView.swift` reusable search input
+- [x] Implement `EmptyStateView.swift` with icon, title, CTA button
 
 ### Services
-- [ ] Implement `RevenueCatService.swift` with `configure()`, `tier(from:)`, `fetchPackages()`
-- [ ] Implement `FirebaseAnalyticsService.swift` with all typed `GleamAnalyticsEvent` cases
-- [ ] Implement `NotificationService.swift` with `UNCalendarNotificationTrigger` per-task scheduling
-- [ ] Implement `AIService.swift` with `generateRoutine(profile:)` backend proxy call
-- [ ] Implement `HapticService.swift` wrapping `UIImpactFeedbackGenerator` with intensity enum
-- [ ] Implement `SoundService.swift` wrapping `AVAudioPlayer` with `isReduceMotionEnabled` check
-- [ ] Implement `ATTService.swift` with ATT request, AdServices token fetch, Facebook flag
+- [x] Implement `RevenueCatService.swift` with `configure()`, `tier(from:)`, `fetchPackages()`
+- [x] Implement `FirebaseAnalyticsService.swift` with all typed `GleamAnalyticsEvent` cases
+- [x] Implement `NotificationService.swift` with `UNCalendarNotificationTrigger` per-task scheduling
+- [x] Implement `AIService.swift` with `generateRoutine(profile:)` backend proxy call
+- [x] Implement `HapticService.swift` wrapping `UIImpactFeedbackGenerator` with intensity enum
+- [x] Implement `SoundService.swift` wrapping `AVAudioPlayer` with `isReduceMotionEnabled` check
+- [x] Implement `ATTService.swift` with ATT request, AdServices token fetch, Facebook flag
 
 ### SDK Integration
-- [ ] Configure RevenueCat with API key and entitlement IDs in `RevenueCatService.configure()`
-- [ ] Verify Firebase `GoogleService-Info.plist` is added to the Xcode project target
-- [ ] Register all `GleamAnalyticsEvent` cases and log from appropriate ViewModels
-- [ ] Configure Facebook App ID and Client Token in Info.plist and `AppDelegate`
-- [ ] Implement AdServices `AAAttribution.attributionToken()` call after ATT authorization
-- [ ] Schedule ATT permission request in `FirstAhaView` (post-value, never on launch)
-- [ ] Pass AdServices token to RevenueCat subscriber attributes for attribution
+- [x] Configure RevenueCat with API key and entitlement IDs in `RevenueCatService.configure()`
+- [ ] Verify Firebase `GoogleService-Info.plist` is added to the Xcode project target (requires real Firebase project)
+- [x] Register all `GleamAnalyticsEvent` cases and log from appropriate ViewModels
+- [x] Configure Facebook App ID and Client Token in Info.plist and `AppDelegate`
+- [x] Implement AdServices `AAAttribution.attributionToken()` call after ATT authorization
+- [x] Schedule ATT permission request in `FirstAhaView` (post-value, never on launch)
+- [x] Pass AdServices token to RevenueCat subscriber attributes for attribution
 - [ ] Test full purchase flow in Xcode StoreKit sandbox environment
 - [ ] Test restore purchases flow
 - [ ] Test RevenueCat entitlement propagation across app lifecycle
 
 ### Accessibility
-- [ ] Add `.accessibilityLabel()` to every `DirtinessMeterView` instance (color alone is never enough)
-- [ ] Add descriptive accessibility labels to all room cards ("Kitchen — needs cleaning urgently")
-- [ ] Add `.accessibilityLabel()` and `.accessibilityHint()` to all interactive task row actions
-- [ ] Add `.accessibilityLabel()` to `HomeHealthGaugeView` ("Home health: 72 out of 100")
+- [x] Add `.accessibilityLabel()` to every `DirtinessMeterView` instance (color alone is never enough)
+- [x] Add descriptive accessibility labels to all room cards ("Kitchen — needs cleaning urgently")
+- [x] Add `.accessibilityLabel()` and `.accessibilityHint()` to all interactive task row actions
+- [x] Add `.accessibilityLabel()` to `HomeHealthGaugeView` ("Home health: 72 out of 100")
 - [ ] Test full onboarding flow with VoiceOver enabled
 - [ ] Ensure all text scales correctly with Dynamic Type (xSmall through AX5) — test in Simulator
 - [ ] Verify color contrast ratios ≥ 4.5:1 for all text elements using Accessibility Inspector
 - [ ] Ensure all touch targets are ≥ 44×44 pt
-- [ ] Honor `UIAccessibility.isReduceMotionEnabled` — skip ASMR animations when enabled
-- [ ] Add haptics toggle in Settings; honor it in `HapticService`
-- [ ] Add sounds toggle in Settings; honor it in `SoundService`
+- [x] Honor `UIAccessibility.isReduceMotionEnabled` — skip ASMR animations when enabled
+- [x] Add haptics toggle in Settings; honor it in `HapticService`
+- [x] Add sounds toggle in Settings; honor it in `SoundService`
 
 ### Polish & UX
-- [ ] Add drag-to-reorder to `RoomDetailView` task list with `onMove` and `sortOrder` persistence
-- [ ] Implement swipe-to-complete gesture on `TaskRowView` with swipe action color-coded by dirtiness
-- [ ] Add contextual long-press menu on tasks: Edit, Snooze, Reassign, Delete
+- [x] Add drag-to-reorder to `RoomDetailView` task list with `onMove` and `sortOrder` persistence
+- [x] Implement swipe-to-complete gesture on `TaskRowView` with swipe action color-coded by dirtiness
+- [x] Add contextual long-press menu on tasks: Edit, Snooze, Reassign, Delete
 - [ ] Add shake-to-undo for accidental task completion (UIShakeGestureRecognizer)
-- [ ] Implement keyboard dismissal on scroll in forms (`.scrollDismissesKeyboard(.interactively)`)
-- [ ] Ensure dark mode looks correct for all custom colors and views
-- [ ] Add loading skeleton states for AI routine generation (not blocking spinner)
-- [ ] Add pull-to-refresh on `DashboardView` and `RoomsView`
-- [ ] Add empty state views for: no rooms, no tasks, no urgent tasks
+- [x] Implement keyboard dismissal on scroll in forms (`.scrollDismissesKeyboard(.interactively)`)
+- [x] Ensure dark mode looks correct for all custom colors and views
+- [x] Add loading skeleton states for AI routine generation (not blocking spinner)
+- [x] Add pull-to-refresh on `DashboardView` and `RoomsView`
+- [x] Add empty state views for: no rooms, no tasks, no urgent tasks
 
 ### Testing & Quality
 - [ ] Test dirtiness score edge cases: never-completed tasks, tasks completed today, paused tasks
@@ -1744,9 +1744,9 @@ APIs used with justification:
 
 ### Pre-Submission
 - [ ] Audit all third-party SDK privacy manifests (Firebase, Facebook, RevenueCat must each have one)
-- [ ] Verify `PrivacyInfo.xcprivacy` accurately declares all data types and API usage reasons
-- [ ] Test AI disclosure consent modal is shown before any Claude API call (required since Nov 2025)
-- [ ] Verify "Delete My Data" flow completely removes all user data from SwiftData + CloudKit
+- [x] Verify `PrivacyInfo.xcprivacy` accurately declares all data types and API usage reasons
+- [x] Test AI disclosure consent modal is shown before any Claude API call (required since Nov 2025)
+- [x] Verify "Delete My Data" flow completely removes all user data from SwiftData + CloudKit
 - [ ] Review all in-app strings for profanity and placeholder text (App Review rejects these)
 - [ ] Confirm no "coming soon" or disabled screens are visible to reviewers
 - [ ] Verify Sign in with Apple is implemented and works (required with any third-party login)
