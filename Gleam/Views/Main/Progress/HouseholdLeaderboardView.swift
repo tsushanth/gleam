@@ -7,8 +7,13 @@ struct HouseholdLeaderboardView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Text("Leaderboard")
-                    .font(.headline)
+                HStack(spacing: 6) {
+                    Text("Leaderboard")
+                        .font(.headline)
+                    if !subscriptionVM.isPremium {
+                        ProBadge()
+                    }
+                }
                 Spacer()
                 Text("This Week")
                     .font(.caption)

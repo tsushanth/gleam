@@ -1,9 +1,9 @@
 import Foundation
 
-enum SubscriptionTier: Equatable {
-    case free
-    case premium
-    case lifetime
+enum SubscriptionTier: String, Equatable {
+    case free     = "free"
+    case premium  = "premium"
+    case lifetime = "lifetime"
 
     var displayName: String {
         switch self {

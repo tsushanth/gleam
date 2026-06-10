@@ -5,12 +5,50 @@ struct SettingsView: View {
     @StateObject private var vm = SettingsViewModel()
     @EnvironmentObject private var subscriptionVM: SubscriptionViewModel
     @Query private var homes: [Home]
+    @State private var showPaywall = false
 
     private var home: Home? { homes.first }
 
     var body: some View {
         NavigationStack {
             Form {
+                // MARK: Premium Banner (non-premium users only)
+                if !subscriptionVM.isPremium {
+                    Section {
+                        Button {
+                            showPaywall = true
+                        } label: {
+                            HStack(spacing: 14) {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .fill(Color.accent.opacity(0.12))
+                                        .frame(width: 40, height: 40)
+                                    Image(systemName: "sparkles")
+                                        .font(.system(size: 18, weight: .medium))
+                                        .foregroundStyle(Color.accent)
+                                }
+
+                                VStack(alignment: .leading, spacing: 2) {
+                                    Text("Upgrade to Gleam Premium")
+                                        .font(.subheadline.bold())
+                                        .foregroundStyle(Color(.label))
+                                    Text("Unlock all features · 7-day free trial")
+                                        .font(.caption)
+                                        .foregroundStyle(.secondary)
+                                }
+
+                                Spacer()
+
+                                Image(systemName: "chevron.right")
+                                    .font(.caption.weight(.semibold))
+                                    .foregroundStyle(Color(.tertiaryLabel))
+                            }
+                        }
+                        .accessibilityLabel("Upgrade to Gleam Premium — 7-day free trial")
+                    }
+                }
+
+                // MARK: Account
                 Section {
                     NavigationLink(destination: AccountView()) {
                         Label("Account & Subscription", systemImage: "person.circle")
@@ -20,6 +58,7 @@ struct SettingsView: View {
                     Text("Account")
                 }
 
+                // MARK: Features
                 Section {
                     NavigationLink(destination: NotificationSettingsView(vm: vm)) {
                         Label("Notifications", systemImage: "bell")
@@ -42,6 +81,7 @@ struct SettingsView: View {
                     Text("Features")
                 }
 
+                // MARK: Appearance & Feel
                 Section {
                     Toggle(isOn: Binding(
                         get: { vm.hapticsEnabled },
@@ -62,15 +102,14 @@ struct SettingsView: View {
                     Text("Appearance & Feel")
                 }
 
+                // MARK: Household (PRO)
                 Section {
                     NavigationLink(destination: HouseholdMembersView()) {
                         HStack {
                             Label("Household Members", systemImage: "person.2")
                             Spacer()
                             if !subscriptionVM.isPremium {
-                                Image(systemName: "lock.fill")
-                                    .font(.caption)
-                                    .foregroundStyle(Color.accent)
+                                ProBadge()
                             }
                         }
                     }
@@ -79,6 +118,7 @@ struct SettingsView: View {
                     Text("Household")
                 }
 
+                // MARK: About
                 Section {
                     Button {
                         if let url = URL(string: "https://appfactory.com/gleam/privacy") {
@@ -104,6 +144,24 @@ struct SettingsView: View {
                 }
             }
             .navigationTitle("Settings")
+            .sheet(isPresented: $showPaywall) {
+                PaywallView(trigger: "settings")
+            }
         }
+    }
+}
+
+// MARK: - PRO Badge
+
+struct ProBadge: View {
+    var body: some View {
+        Text("PRO")
+            .font(.system(size: 10, weight: .bold))
+            .foregroundStyle(.white)
+            .padding(.horizontal, 7)
+            .padding(.vertical, 3)
+            .background(Color.accent)
+            .clipShape(Capsule())
+            .accessibilityLabel("Premium feature")
     }
 }

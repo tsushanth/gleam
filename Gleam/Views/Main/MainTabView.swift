@@ -33,7 +33,7 @@ struct MainTabView: View {
                 .tag(4)
         }
         .sheet(isPresented: $router.showPaywall) {
-            PaywallView()
+            PaywallView(trigger: router.paywallTrigger)
         }
     }
 }

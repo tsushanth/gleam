@@ -1,7 +1,6 @@
 import AppTrackingTransparency
 import AdServices
 import Foundation
-import RevenueCat
 
 final class ATTService {
     static let shared = ATTService()
@@ -22,11 +21,8 @@ final class ATTService {
     }
 
     private func attributeViaAdServices() {
-        do {
-            let token = try AAAttribution.attributionToken()
-            Purchases.shared.attribution.setAttributes(["adservices_token": token])
-        } catch {
-            // Attribution token unavailable; silently skip
-        }
+        guard let token = try? AAAttribution.attributionToken() else { return }
+        // Forward to your analytics/attribution backend as needed.
+        _ = token
     }
 }

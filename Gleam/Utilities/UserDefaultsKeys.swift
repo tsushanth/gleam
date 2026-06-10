@@ -8,4 +8,6 @@ enum UserDefaultsKeys {
     static let currentStreakDays = "currentStreakDays"
     static let lastOpenedDate = "lastOpenedDate"
     static let hasSeenATTPrompt = "hasSeenATTPrompt"
+    static let subscriptionTier = "subscriptionTier"
+    static let hasRemovedAds = "hasRemovedAds"
 }

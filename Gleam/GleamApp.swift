@@ -1,7 +1,6 @@
 import SwiftUI
 import SwiftData
 import FirebaseCore
-import RevenueCat
 
 @main
 struct GleamApp: App {
@@ -40,7 +39,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
     ) -> Bool {
         FirebaseApp.configure()
         FirebaseAnalyticsService.shared.configure()
-        RevenueCatService.shared.configure()
+        // StoreKit 2 initialises lazily via StoreKitManager.shared (called from SubscriptionViewModel)
         return true
     }
 }

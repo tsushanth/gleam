@@ -8,9 +8,6 @@ options:
   groupSortPosition: top
 
 packages:
-  RevenueCat:
-    url: https://github.com/RevenueCat/purchases-ios-spm
-    from: "5.0.0"
   Firebase:
     url: https://github.com/firebase/firebase-ios-sdk
     from: "11.0.0"
@@ -30,8 +27,6 @@ targets:
     resources:
       - path: Gleam/Resources/Assets.xcassets
     dependencies:
-      - package: RevenueCat
-        product: RevenueCat
       - package: Firebase
         product: FirebaseAnalytics
       - package: FacebookSDK
@@ -40,6 +35,7 @@ targets:
       - sdk: AppTrackingTransparency.framework
       - sdk: AuthenticationServices.framework
       - sdk: AVFoundation.framework
+      - sdk: StoreKit.framework
       - sdk: UserNotifications.framework
     entitlements:
       path: Gleam/Resources/Gleam.entitlements
