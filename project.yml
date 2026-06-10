@@ -26,6 +26,7 @@ targets:
           - "**/.DS_Store"
     resources:
       - path: Gleam/Resources/Assets.xcassets
+      - path: Gleam/Resources/GoogleService-Info.plist
     dependencies:
       - package: Firebase
         product: FirebaseAnalytics
@@ -50,7 +51,12 @@ targets:
         NSCameraUsageDescription: "Gleam can scan a room to identify cleaning tasks automatically."
         NSMicrophoneUsageDescription: "Gleam uses your microphone for hands-free task completion by voice."
         NSMotionUsageDescription: "Gleam uses motion data to detect when you're home and suggest cleaning sessions."
-        NSUserTrackingUsageDescription: "We use this to show you relevant ads and measure how well our ads work. Your data is never sold."
+        NSUserTrackingUsageDescription: "This identifier will be used to deliver personalized ads to you."
+        SKAdNetworkItems:
+          - SKAdNetworkIdentifier: "v9wttpbfk9.skadnetwork"
+          - SKAdNetworkIdentifier: "n38lu8286q.skadnetwork"
+          - SKAdNetworkIdentifier: "238da6jt44.skadnetwork"
+          - SKAdNetworkIdentifier: "22mmun2rn5.skadnetwork"
         FacebookAppID: "$(FACEBOOK_APP_ID)"
         FacebookClientToken: "$(FACEBOOK_CLIENT_TOKEN)"
         FacebookDisplayName: "Gleam"
